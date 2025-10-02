@@ -1,9 +1,11 @@
 package com.example.emergencycpr;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +28,10 @@ public class DroneActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Show Status Bar.
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        getWindow().setStatusBarColor(Color.parseColor("#0000bb"));
 
         textViewDroneInfo = findViewById(R.id.textViewDroneInfo);
 

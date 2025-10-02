@@ -36,7 +36,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="50dp"
                 android:gravity="center"
-                android:text="Is the person breathing? Is there a pulse?"
+                android:text="Is the person breathing?"
                 android:textColor="#E0E0E0"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Breathing, has a pulse"
+                android:text="Breathing"
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
                 android:backgroundTint="#35B100"
@@ -69,30 +69,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewSteps" />
 
             <Button
-                android:id="@+id/yesnoButton"
+                android:id="@+id/nonoButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#FFAB2C"
-                android:text="Breathing, No pulse"
+                android:backgroundTint="#FF2C2C"
+                android:text="No Breathing/ Abnormal Breathing"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/yesButton" />
-
-            <Button
-                android:id="@+id/nonoButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#FF2C2C"
-                android:text="Not Breathing, No pulse"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/yesnoButton" />
 
             <View
                 android:layout_width="0dp"
@@ -105,5 +92,27 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+
+    <FrameLayout
+        android:id="@+id/videoContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        android:padding="5dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
