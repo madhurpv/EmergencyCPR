@@ -48,6 +48,13 @@ public class IsRespondingActivity extends AppCompatActivity {
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+            }
+        });
+
+        noButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 callAmbulancePopup();
             }
         });
@@ -128,7 +135,7 @@ public class IsRespondingActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Uri number = Uri.parse("tel:123456789");
+                Uri number = Uri.parse("tel:108");
                 Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
                 startActivity(callIntent);
                 //Intent intent = new Intent(IsRespondingActivity.this, IsBreathingActivity.class);
