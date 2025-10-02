@@ -40,7 +40,8 @@ public class IsBreathingActivity extends AppCompatActivity {
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dispatchDrone(1);
+                Intent intent = new Intent(IsBreathingActivity.this, WaitForAmbulanceActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -1,5 +1,6 @@
 package com.example.emergencycpr;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -32,17 +33,26 @@ public class DroneActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //run after 3 seconds
-                textViewDroneInfo.setText("Drone Dispatched!");
+                textViewDroneInfo.setText("Dispatching Drone!");
                 new Handler(Looper.myLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         //run after 6 seconds
-                        textViewDroneInfo.setText("Live Location Tracking....");
+                        textViewDroneInfo.setText("Drone Dispatched!");
                         new Handler(Looper.myLooper()).postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 //run after 9 seconds
-                                textViewDroneInfo.setText("Drone has arrived!");
+                                textViewDroneInfo.setText("Live Location Tracking....");
+                                new Handler(Looper.myLooper()).postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        //run after 9 seconds
+                                        //textViewDroneInfo.setText("Drone has arrived!");
+                                        Intent intent = new Intent(DroneActivity.this, CardiacEmergencyActivity.class);
+                                        startActivity(intent);
+                                    }
+                                }, 3000);
                             }
                         }, 3000);
                     }
