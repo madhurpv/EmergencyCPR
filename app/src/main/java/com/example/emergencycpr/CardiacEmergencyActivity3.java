@@ -16,7 +16,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class CardiacEmergencyActivity2 extends AppCompatActivity {
+public class CardiacEmergencyActivity3 extends AppCompatActivity {
+
 
     Button doneButton;
 
@@ -27,7 +28,7 @@ public class CardiacEmergencyActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_cardiac_emergency2);
+        setContentView(R.layout.activity_cardiac_emergency3);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -44,7 +45,7 @@ public class CardiacEmergencyActivity2 extends AppCompatActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CardiacEmergencyActivity2.this, CardiacEmergencyActivity3.class);
+                Intent intent = new Intent(CardiacEmergencyActivity3.this, MetronomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -80,7 +81,7 @@ public class CardiacEmergencyActivity2 extends AppCompatActivity {
 
 
         // Set video path (from res/raw)
-        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.interlockfingers;
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.givingcpr;
         Uri uri = Uri.parse(videoPath);
 
         // MediaController with play/pause/seek controls
