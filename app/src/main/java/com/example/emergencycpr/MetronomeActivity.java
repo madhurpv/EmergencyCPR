@@ -1,5 +1,6 @@
 package com.example.emergencycpr;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
@@ -18,7 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MetronomeActivity extends AppCompatActivity {
 
 
-    private Button startButton, stopButton;
+    private Button startButton, stopButton, doneButton;
     private TextView metronomeCounter;
     private Handler handler = new Handler();
     private boolean isRunning = false;
@@ -54,9 +55,18 @@ public class MetronomeActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(Color.parseColor("#0000bb"));
 
 
+        doneButton = findViewById(R.id.doneButton);
         startButton = findViewById(R.id.startMetronomeButton);
         stopButton = findViewById(R.id.stopMetronomeButton);
         metronomeCounter = findViewById(R.id.metronomeCounter);
+
+        doneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MetronomeActivity.this, UsingAEDActivity.class);
+                startActivity(intent);
+            }
+        });
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
