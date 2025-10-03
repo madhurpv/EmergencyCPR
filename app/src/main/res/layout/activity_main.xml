@@ -142,7 +142,26 @@
                     android:layout_marginTop="0dp"/>
             </LinearLayout>
 
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/infoFloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        app:maxImageSize="16dp"
+        android:scaleType="center"
+        app:fabCustomSize="35dp"
+        android:backgroundTint="#0099FF"
+        app:tint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/baseline_info_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

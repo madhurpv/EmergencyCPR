@@ -18,9 +18,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout AEDCardView, CPRCardView, EmergencyCardView;
+    FloatingActionButton infoFloatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         AEDCardView = findViewById(R.id.aedButtonLayout);
         CPRCardView = findViewById(R.id.cprButtonLayout);
         EmergencyCardView = findViewById(R.id.emergencyButtonLayout);
+        infoFloatingActionButton = findViewById(R.id.infoFloatingActionButton);
 
 
         showEmergencyPopup();
@@ -76,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, EmergencyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        infoFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent);
             }
         });
