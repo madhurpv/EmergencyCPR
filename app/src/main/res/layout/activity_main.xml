@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
                 android:gravity="center"
-                android:text="Welcome to Emergency CPR App!"
+                android:text="Welcome to REVIVA!"
                 android:textColor="#E0E0E0"
                 android:textSize="35sp"
                 app:layout_constraintEnd_toEndOf="parent"

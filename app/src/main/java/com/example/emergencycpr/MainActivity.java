@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout AEDCardView, CPRCardView, EmergencyCardView;
+    Button btnAED, btnCPR, btnEmergency;
     FloatingActionButton infoFloatingActionButton;
 
     @Override
@@ -54,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         AEDCardView = findViewById(R.id.aedButtonLayout);
         CPRCardView = findViewById(R.id.cprButtonLayout);
         EmergencyCardView = findViewById(R.id.emergencyButtonLayout);
+        btnAED = findViewById(R.id.btnAED);
+        btnCPR = findViewById(R.id.btnCPR);
+        btnEmergency = findViewById(R.id.btnEmergency);
         infoFloatingActionButton = findViewById(R.id.infoFloatingActionButton);
 
 
@@ -76,7 +81,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnCPR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://youtube.com/playlist?list=PLfqASPDZ7aT_ZI-jhLGAGCy5RbAoLPeja&si=UnJpVMFCONbwYZ_U"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
         EmergencyCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, EmergencyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnEmergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, EmergencyActivity.class);
