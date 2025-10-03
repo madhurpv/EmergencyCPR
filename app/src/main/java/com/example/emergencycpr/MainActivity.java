@@ -3,9 +3,12 @@ package com.example.emergencycpr;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -17,7 +20,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    CardView AEDCardView, CPRCardView, EmergencyCardView;
+    LinearLayout AEDCardView, CPRCardView, EmergencyCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +33,24 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        AEDCardView = findViewById(R.id.AEDCardView);
-        CPRCardView = findViewById(R.id.CPRCardView);
-        EmergencyCardView = findViewById(R.id.EmergencyCardView);
+        // Show Status Bar.
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        getWindow().setStatusBarColor(Color.parseColor("#0000bb"));
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPreferences", MODE_PRIVATE);
+        String savedName = sharedPreferences.getString("user_name", "");
+
+        if(savedName.isEmpty()){
+            Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+
+        AEDCardView = findViewById(R.id.aedButtonLayout);
+        CPRCardView = findViewById(R.id.cprButtonLayout);
+        EmergencyCardView = findViewById(R.id.emergencyButtonLayout);
 
 
         showEmergencyPopup();

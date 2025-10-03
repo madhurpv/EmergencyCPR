@@ -9,88 +9,140 @@
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/AEDCardView"
-        android:layout_width="wrap_content"
+        android:id="@+id/mainCardView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="20dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
+            android:background="@drawable/card_background_question"
+            android:padding="40dp">
+
 
             <TextView
+                android:id="@+id/textViewTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="How to Use AED"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:text="Welcome to Emergency CPR App!"
+                android:textColor="#E0E0E0"
+                android:textSize="35sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/CPRCardView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/AEDCardView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- AED Button -->
+            <LinearLayout
+                android:id="@+id/aedButtonLayout"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="CPR Videos"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="6dp"
+                android:background="#3300FFFF"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/textViewTitle"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintEnd_toEndOf="parent">
 
-    </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:id="@+id/iconAED"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/baseline_monitor_heart_24"
+                    app:tint="#FFFFFF"
+                    android:contentDescription="AED Icon"
+                    android:layout_gravity="center"/>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/EmergencyCardView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:padding="20dp"
-        app:cardBackgroundColor="#FF4545"
-        app:layout_constraintTop_toBottomOf="@+id/AEDCardView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+                <Button
+                    android:id="@+id/btnAED"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="How to Use AED"
+                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#3F51B5"
+                    android:layout_marginTop="0dp"/>
+            </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- CPR Button -->
+            <LinearLayout
+                android:id="@+id/cprButtonLayout"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="EMERGENCY"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="6dp"
+                android:background="#3300FFFF"
+                app:layout_constraintTop_toBottomOf="@id/aedButtonLayout"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp">
 
+                <ImageView
+                    android:id="@+id/iconCPR"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/baseline_slow_motion_video_24"
+                    app:tint="#FFFFFF"
+                    android:contentDescription="CPR Icon"
+                    android:layout_gravity="center"/>
+
+                <Button
+                    android:id="@+id/btnCPR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CPR Videos"
+                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#35B100"
+                    android:layout_marginTop="0dp"/>
+            </LinearLayout>
+
+            <!-- Emergency Button -->
+            <LinearLayout
+                android:id="@+id/emergencyButtonLayout"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="6dp"
+                android:background="#33FF0000"
+                app:layout_constraintTop_toBottomOf="@id/cprButtonLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iconEmergency"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/baseline_warning_24"
+                    app:tint="#FF7070"
+                    android:contentDescription="Emergency Icon"
+                    android:layout_gravity="center"/>
+
+                <Button
+                    android:id="@+id/btnEmergency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EMERGENCY"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#FF2C2C"
+                    android:layout_marginTop="0dp"/>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
